@@ -1,6 +1,4 @@
-#!/bin/bash
-
-set -x
+#!/bin/bash -x
 
 if [ "$ENV" == "dev" ] || [ "$ENV" == "test" ]; then
     pecl install xdebug-$XDEBUG_VERSION
