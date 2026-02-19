@@ -5,8 +5,15 @@
     "prefer-stable": true,
     "require": {
         "php": ">=8.4",
+        "ext-amqp": "*",
         "ext-ctype": "*",
+        "ext-hash": "*",
         "ext-iconv": "*",
+        "ext-json": "*",
+        "ext-mbstring": "*",
+        "ext-openssl": "*",
+        "ext-pdo": "*",
+        "ext-pdo_mysql": "*",
         "doctrine/doctrine-bundle": "^3.2.2",
         "doctrine/doctrine-migrations-bundle": "^4.0",
         "doctrine/orm": "^3.6.2",
@@ -85,8 +92,7 @@
             "php bin/console doctrine:database:drop --if-exists --force",
             "php bin/console doctrine:database:create",
             "php bin/console doctrine:schema:update --force --complete",
-            "php bin/console doctrine:fixtures:load -n",
-            "php bin/console user:index"
+            "php bin/console doctrine:fixtures:load -n"
         ],
         "auto-scripts": {
             "cache:clear": "symfony-cmd",
@@ -110,6 +116,7 @@
         }
     },
     "require-dev": {
+        "doctrine/doctrine-fixtures-bundle": "^4.3",
         "phpunit/phpunit": "^13.0.5",
         "symfony/browser-kit": "8.0.*",
         "symfony/css-selector": "8.0.*",
