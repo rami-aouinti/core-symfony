@@ -6,6 +6,10 @@
     <div class="example-wrapper">
         <h1>Liste des platforms ({{ platforms|length }})</h1>
 
+        {% if database_unavailable %}
+            <p>La base de données est indisponible pour le moment.</p>
+        {% endif %}
+
         <ul>
             {% for platform in platforms %}
                 <li>
