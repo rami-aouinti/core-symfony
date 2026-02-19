@@ -340,11 +340,11 @@ drop-migrate: ## Drops databases and runs all migrations for the main/test datab
 	@make migrate
 
 migrate-no-test: ## Runs all migrations for main database
-	@make exec cmd="php bin/console doctrine:migrations:migrate --no-interaction"
+	@make exec cmd="php bin/console doctrine:migrations:migrate --allow-no-migration --no-interaction"
 
 migrate: ## Runs all migrations for main/test databases
-	@make exec cmd="php bin/console doctrine:migrations:migrate --no-interaction"
-	@make exec cmd="php bin/console doctrine:migrations:migrate --no-interaction --env=test"
+	@make exec cmd="php bin/console doctrine:migrations:migrate --allow-no-migration --no-interaction"
+	@make exec cmd="php bin/console doctrine:migrations:migrate --allow-no-migration --no-interaction --env=test"
 
 migrate-cron-jobs: ## Creates cron job tasks (cleanup logs, failed old messenger messages)
 	@make exec cmd="php bin/console scheduler:cleanup-logs"
