@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Repository\PlatformRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
@@ -13,10 +14,10 @@ use Symfony\Component\Routing\Attribute\Route;
 final class HomeController extends AbstractController
 {
     #[Route('/', name: 'app_home')]
-    public function index(): Response
+    public function index(PlatformRepository $platformRepository): Response
     {
         return $this->render('home/index.html.twig', [
-            'controller_name' => 'HomeController',
+            'platforms' => $platformRepository->findBy([], ['id' => 'ASC']),
         ]);
     }
 }
