@@ -126,7 +126,18 @@ src/
 
 ---
 
-## 8) Bénéfices attendus
+## 8) Definition of Done architecture
+
+Pour considérer une migration de flux terminée, les critères suivants doivent être validés :
+
+- aucun contrôleur ne contient de logique métier,
+- le Domain est sans dépendance Symfony/Doctrine,
+- chaque nouveau flux passe par `Command` + `Handler`,
+- la persistance est implémentée via un port (interface) + un adapter (Infrastructure).
+
+---
+
+## 9) Bénéfices attendus
 
 - lisibilité du code par contexte métier,
 - meilleure vitesse de changement,
@@ -136,7 +147,7 @@ src/
 
 ---
 
-## 9) Démarrage immédiat (prochaine itération)
+## 10) Démarrage immédiat (prochaine itération)
 
 1. Migrer uniquement le flux `CreatePlatform` selon ce modèle.
 2. Conserver le reste en l’état (approche incrémentale).
