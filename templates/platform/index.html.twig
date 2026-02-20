@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Platform index{% endblock %}
+
+{% block body %}
+    <h1>Platforms</h1>
+
+    <a href="{{ path('app_platform_new') }}">Create new</a>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Slug</th>
+                <th>Color</th>
+                <th>Active</th>
+                <th>Created</th>
+                <th>Updated</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for platform in platforms %}
+            <tr>
+                <td>{{ platform.id }}</td>
+                <td>{{ platform.name }}</td>
+                <td>{{ platform.description }}</td>
+                <td>{{ platform.slug }}</td>
+                <td>{{ platform.color }}</td>
+                <td>{{ platform.active ? 'Yes' : 'No' }}</td>
+                <td>{{ platform.createdAt ? platform.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ platform.updatedAt ? platform.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>
+                    <a href="{{ path('app_platform_show', {'id': platform.id}) }}">show</a>
+                    <a href="{{ path('app_platform_edit', {'id': platform.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="9">No platform found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
