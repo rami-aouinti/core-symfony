@@ -198,7 +198,7 @@ services:
         container_name: ${COMPOSE_PROJECT_NAME}-mercure
         restart: always
         environment:
-            SERVER_NAME: ':80'
+            SERVER_NAME: ':81'
             MERCURE_PUBLISHER_JWT_KEY: ${MERCURE_JWT_SECRET}
             MERCURE_SUBSCRIBER_JWT_KEY: ${MERCURE_JWT_SECRET}
             MERCURE_EXTRA_DIRECTIVES: |
@@ -206,7 +206,7 @@ services:
                 anonymous
         command: /usr/bin/caddy run --config /etc/caddy/dev.Caddyfile
         ports:
-            - "${MERCURE_HTTP_PORT}:80"
+            - "${MERCURE_HTTP_PORT}:81"
         volumes:
             - ./var/mercure-data:/data
             - ./var/mercure-config:/config
