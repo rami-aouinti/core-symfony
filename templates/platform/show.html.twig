@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Platform{% endblock %}
+
+{% block body %}
+    <h1>Platform</h1>
+
+    <table>
+        <tbody>
+            <tr><th>Id</th><td>{{ platform.id }}</td></tr>
+            <tr><th>Name</th><td>{{ platform.name }}</td></tr>
+            <tr><th>Description</th><td>{{ platform.description }}</td></tr>
+            <tr><th>Slug</th><td>{{ platform.slug }}</td></tr>
+            <tr><th>Color</th><td>{{ platform.color }}</td></tr>
+            <tr><th>Active</th><td>{{ platform.active ? 'Yes' : 'No' }}</td></tr>
+            <tr><th>Created</th><td>{{ platform.createdAt ? platform.createdAt|date('Y-m-d H:i:s') : '' }}</td></tr>
+            <tr><th>Updated</th><td>{{ platform.updatedAt ? platform.updatedAt|date('Y-m-d H:i:s') : '' }}</td></tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_platform_index') }}">Back to list</a>
+    <a href="{{ path('app_platform_edit', {'id': platform.id}) }}">Edit</a>
+
+    {{ include('platform/_delete_form.html.twig') }}
+{% endblock %}

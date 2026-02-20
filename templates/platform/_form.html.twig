@@ -1,0 +1,7 @@
+{{ form_start(form) }}
+    {{ form_row(form.name) }}
+    {{ form_row(form.description) }}
+    {{ form_row(form.color) }}
+    {{ form_row(form.active) }}
+    <button type="submit">{{ button_label|default('Save') }}</button>
+{{ form_end(form) }}
