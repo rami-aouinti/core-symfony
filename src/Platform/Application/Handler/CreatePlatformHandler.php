@@ -5,11 +5,11 @@ namespace App\Platform\Application\Handler;
 use App\Platform\Application\Command\CreatePlatformCommand;
 use App\Platform\Application\DTO\PlatformCreatedDTO;
 use App\Platform\Domain\Model\Platform;
-use App\Platform\Domain\Repository\PlatformRepositoryInterface;
+use App\Platform\Domain\Repository\PlatformRepository;
 
 final readonly class CreatePlatformHandler
 {
-    public function __construct(private PlatformRepositoryInterface $platformRepository)
+    public function __construct(private PlatformRepository $platformRepository)
     {
     }
 

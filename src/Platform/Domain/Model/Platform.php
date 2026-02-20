@@ -40,6 +40,17 @@ final class Platform
         );
     }
 
+    public static function reconstitute(string $id, string $name, string $description, string $color, bool $active): self
+    {
+        return new self(
+            id: $id,
+            name: $name,
+            description: $description,
+            color: strtoupper($color),
+            active: $active,
+        );
+    }
+
     public function id(): string
     {
         return $this->id;
