@@ -68,8 +68,8 @@ RUN apt-get update && apt-get upgrade -y && apt-get install -y \
 # create document root, fix permissions for www-data user and change owner to www-data
 RUN mkdir -p $APP_HOME/public && \
     mkdir -p /home/$USERNAME && chown $USERNAME:$USERNAME /home/$USERNAME \
-    && usermod -o -u $HOST_UID $USERNAME -d /home/$USERNAME \
-    && groupmod -o -g $HOST_GID $USERNAME \
+    && if [ "$HOST_GID" != "0" ]; then groupmod -o -g $HOST_GID $USERNAME; fi \
+    && if [ "$HOST_UID" != "0" ]; then usermod -o -u $HOST_UID $USERNAME -d /home/$USERNAME; fi \
     && chown -R ${USERNAME}:${USERNAME} $APP_HOME
 
 # put php config for Symfony
